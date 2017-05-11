@@ -13,10 +13,9 @@ print(out)
 fileToRead = "/home/kaisa/Documents/Python/Project/test.csv" 
 fileToWrite = "/home/kaisa/Documents/Python/Project/test2.csv" 
 
-def stringToCsv(data, url):
+def stringToCsv(data, csvFileToWrite):
     index=(data.find('(')) + 1
-    download_dir = url
-    csv = open(download_dir, "w")
+    csv_write = open(csvFileToWrite, "w")
     
     while index < data.rfind(')'):
         i = data.find('(', index)
@@ -25,9 +24,9 @@ def stringToCsv(data, url):
         index = j+1
         if temp != '':
             row = temp+'\n'
-            csv.write(row)
+            csv_write.write(row)
         
-    return csv;
+    return csv_write;
     
 stringToCsv(out,fileToRead)
 
@@ -58,4 +57,4 @@ def latLongToCsv(dbase, csvFileToRead, csvFileToWrite):
 
         
 latLongToCsv(geo_data,fileToRead, fileToWrite)
-## if it gives error, then move on
+
