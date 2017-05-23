@@ -1,8 +1,11 @@
 Traceroute visualisation
 
-The logic of how the Internet works may seem quite confusing at first. The traceroute command gives a good overview of how the data travels from one place to another. Since all these servers/computers are located somewhere physically, it would make the concept of Internet even clearer if the route was shown on a map. 
+The logic of how the Internet works may seem quite confusing at first. The traceroute command gives a good overview of how the data travels from one place to another. Since all these servers/computers are located somewhere physically, it can make the concept of Internet clearer if the route is shown on a map. 
 
 Goal of the project is to initiate a traceroute command from the command line and use the output to visualise the route on a map.  
 
-Python 3
-Matplotlib
+Requirements:
+matplotlib
+basemap
+GeoLite2-City.mmdb (can be downloaded: http://dev.maxmind.com/geoip/geoip2/geolite2/#Databases)
+
