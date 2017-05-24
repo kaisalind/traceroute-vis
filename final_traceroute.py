@@ -1,9 +1,8 @@
-import geoip2
+import argparse
 import geoip2.database
 from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 import numpy as np
-import argparse
 from subprocess import check_output
 
 
@@ -23,7 +22,7 @@ def ipToDict(data):
     return my_dict;
     
 
-geo_data = '/home/kaisa/Documents/Python/GeoLite2/GeoLite2-City.mmdb'
+geo_data = '/home/kaisa/Documents/Python/GeoLite2/GeoLite2-City.mmdb' # CHANGE ROOT PATH
 
 def latLongToDict(dbase, my_dict):
     reader = geoip2.database.Reader(dbase)
@@ -43,11 +42,9 @@ def latLongToDict(dbase, my_dict):
 
 
 def pointsFromDict(my_dict, my_map):
-    
     temp_lat = 0.0
     temp_long = 0.0
-    for k in my_dict: 
-        
+    for k in my_dict:         
         if temp_lat == 0.0 and temp_long == 0.0:
                       
             if my_dict[k]!={}:
@@ -76,11 +73,10 @@ def main():
     parser.add_argument("ip", help="enter a website")
     args = parser.parse_args()
     check_argument = str(check_output(["host", args.ip]), 'utf-8')
-    print(check_argument)
+   
     if 'has address' in check_argument:
         tmp_out = check_output(["traceroute",args.ip])
         out = str(tmp_out, 'utf-8')
-        print(out)
     else:
         print('Incorrect argument.')   
    
