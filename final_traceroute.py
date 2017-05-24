@@ -79,7 +79,7 @@ def main():
         out = str(tmp_out, 'utf-8')
     else:
         print('Incorrect argument.')   
-   
+    print(ipToDict(out))
     plt.figure(figsize=(30,15))
     my_map = Basemap()
     my_map.drawcoastlines(color='grey')
@@ -88,4 +88,8 @@ def main():
     pointsFromDict(latLongToDict(geo_data,ipToDict(out)), my_map) #makes my_map available
     plt.show()
 
-main()
+#main()
+
+if __name__ == "__main__":
+   # stuff only to run when not called via 'import' here
+   main()
